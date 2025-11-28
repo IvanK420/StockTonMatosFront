@@ -2,12 +2,12 @@
   <div class="p-4 sm:p-6 lg:p-8">
     <div class="sm:flex sm:items-center">
       <div class="sm:flex-auto">
-        <h1 class="text-xl font-semibold text-gray-900 dark:text-white">Categories</h1>
-        <p class="mt-2 text-sm text-gray-700 dark:text-gray-300">A list of all the product categories.</p>
+        <h1 class="text-xl font-semibold text-gray-900 dark:text-white">Users</h1>
+        <p class="mt-2 text-sm text-gray-700 dark:text-gray-300">A list of all the users.</p>
       </div>
       <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
         <button type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">
-          Add Category
+          Add User
         </button>
       </div>
     </div>
@@ -16,7 +16,7 @@
         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
           <div v-if="pending" class="text-center text-gray-500 dark:text-gray-400">Loading...</div>
           <div v-else-if="error" class="text-center text-red-500 dark:text-red-400">
-            Failed to load categories: {{ error.data?.message || error.message }}
+            Failed to load users: {{ error.data?.message || error.message }}
           </div>
           <div v-else class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
             <table class="min-w-full divide-y divide-gray-300 dark:divide-gray-700">
