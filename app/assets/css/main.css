@@ -12,7 +12,31 @@
     --color-green-vogue-700: #0a549a;
     --color-green-vogue-800: #0c4880;
     --color-green-vogue-900: #103d6a;
-    --color-green-vogue-950: #0c2b4e;
+    --color-green-vogue-950: #0c2b4e; /* accent color */
+
+    --color-my-sin-50: #fff9eb;
+    --color-my-sin-100: #ffefc6;
+    --color-my-sin-200: #ffdc88;
+    --color-my-sin-300: #ffc54a;
+    --color-my-sin-400: #ffb433; /*yellowC*/
+    --color-my-sin-500: #f98a07;
+    --color-my-sin-600: #dd6402;
+    --color-my-sin-700: #b74306;
+    --color-my-sin-800: #94330c;
+    --color-my-sin-900: #7a2a0d;
+    --color-my-sin-950: #461402;
+
+    --color-blumine-50: #eefcfd;
+    --color-blumine-100: #d3f4fa;
+    --color-blumine-200: #ace8f5;
+    --color-blumine-300: #73d6ed;
+    --color-blumine-400: #33bbdd;
+    --color-blumine-500: #189fc2;
+    --color-blumine-600: #177fa3;
+    --color-blumine-700: #196785;
+    --color-blumine-800: #1d546c; /* primaryC */
+    --color-blumine-900: #1d475c;
+    --color-blumine-950: #0d2e3f;
 
 
 }

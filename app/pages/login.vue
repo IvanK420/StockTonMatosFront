@@ -3,7 +3,7 @@
     <div class="flex flex-col items-center justify-center h-screen px-6 py-8 mx-auto md:h-screen lg:py-0 bg-[url('/background.png')] bg-contain bg-top bg-no-repeat">
       <div class="w-full rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800/75 dark:border-gray-700 bg-white/75">
         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-          <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+          <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white justify-self-center">
             Connexion
           </h1>
           <form class="space-y-4 md:space-y-6" @submit.prevent="login">
@@ -14,7 +14,7 @@
                 v-model="email"
                 type="email"
                 name="email"
-                class="  border-b-2 text-gray-900 sm:text-sm block w-full p-2.5  dark:border-white dark:placeholder-gray-300 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="  border-b-2 text-gray-900 sm:text-sm block w-full p-2.5  dark:border-white dark:placeholder-gray-300 dark:text-white "
                 placeholder="johndoe@hotmail.fr"
                 required
               />
@@ -27,13 +27,13 @@
                 type="password"
                 name="password"
                 placeholder="••••••••"
-                class=" border-b-2 text-gray-900 sm:text-sm  focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-300 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class=" border-b-2 text-gray-900 sm:text-sm   block w-full p-2.5  dark:border-white dark:placeholder-gray-300 dark:text-white "
                 required
               />
             </div>
             <button
               type="submit"
-              class="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
+              class="w-full text-white bg-blumine-800 hover:bg-blumine-950 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blumine-600 dark:hover:bg-blumine-500 dark:focus:ring-blumine-800"
             >
               Sign in
             </button>
