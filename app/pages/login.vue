@@ -49,7 +49,7 @@
 
 <script setup>
 import { ref } from 'vue';
-
+const { loggedIn, user, session, fetch, clear, openInPopup } = useUserSession()
 const email = ref('');
 const password = ref('');
 const responseMessage = ref('');
@@ -64,12 +64,17 @@ const login = async () => {
         password: password.value,
       },
     });
+    const jwtToken = response.token;
+    if (jwtToken) {
 
-    if (response.token) {
-      responseMessage.value = `Login successful! Token: ${response.token}`;
+      session.value = {
+        ...session.value,
+        token: jwtToken
+      }
+
+      responseMessage.value = `Login successful!`;
       isSuccess.value = true;
-      // localStorage.setItem('token', response.token);
-      window.location.href = '/api/api/categories';
+      await navigateTo('/users')
     } else {
       responseMessage.value = 'Login successful, but no token received.';
       isSuccess.value = false;
