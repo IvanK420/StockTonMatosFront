@@ -9,8 +9,8 @@ const { user, clear: clearSession,loggedIn } = useUserSession()
 
 <template>
   <div class="flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 text-center px-4">
-    <h1 class="text-4xl font-bold text-gray-900 dark:text-white">
-      Bienvenue à StockTonMatos
+    <h1 class="text-4xl font-bold text-gray-900 dark:text-white top-0">
+      Inventaire
     </h1>
     <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
       Gère ton matos comme un vrai pro de la peche
