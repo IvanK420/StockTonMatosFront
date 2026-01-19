@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import CatCard from '~/components/catCard.vue';
 import QrButton from '~/components/qrButton .vue';
 
 definePageMeta({
@@ -27,7 +26,7 @@ const { user, clear: clearSession,loggedIn } = useUserSession()
         Catégories
       </h2>
       <div class="flex gap-5 overflow-x-auto overflow-y-hidden pb-2 ">
-      
+     <ScrollCat/>
       </div>
 
     </div>
