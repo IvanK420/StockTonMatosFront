@@ -27,6 +27,7 @@ type Category = {
 interface ApiResponse {
   member: Category[];
 }
+
 const { data: response } = await useAsyncData<ApiResponse>('categories', () => 
   $fetch('/api/categories',{
     headers: {
@@ -36,5 +37,4 @@ const { data: response } = await useAsyncData<ApiResponse>('categories', () =>
   
 )
 const categories = computed(() => response.value?.member || [])
-console.log(categories.value)
 </script>
