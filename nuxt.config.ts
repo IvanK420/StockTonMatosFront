@@ -8,7 +8,8 @@ export default defineNuxtConfig({
     modules: ['@pinia/nuxt',
         'nuxt-auth-utils',
         'pinia-plugin-persistedstate/nuxt',
-        '@nuxt/ui'],
+        '@nuxt/ui',
+       ],
     vite: {
         plugins: [
             tailwindcss(),
