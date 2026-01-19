@@ -47,7 +47,11 @@
   </section>
 </template>
 
-<script setup>
+<script setup >
+  definePageMeta({
+  layout: false,
+})
+
 import { ref } from 'vue';
 const { loggedIn, user, session, fetch, clear, openInPopup } = useUserSession()
 const email = ref('');
