@@ -66,15 +66,19 @@ const login = async () => {
     });
     const jwtToken = response.token;
     if (jwtToken) {
-
+      
+      await fetch();
+      
+      
       session.value = {
-        ...session.value,
-        token: jwtToken
-      }
+        token: jwtToken,
+        user: response.user || { email: email.value }
+      };
 
       responseMessage.value = `Login successful!`;
       isSuccess.value = true;
-      await navigateTo('/users')
+     
+      await navigateTo('/')
     } else {
       responseMessage.value = 'Login successful, but no token received.';
       isSuccess.value = false;
