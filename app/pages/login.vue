@@ -71,7 +71,6 @@ const login = async () => {
     const jwtToken = response.token;
     if (jwtToken) {
       
-      // await fetch();
       await refreshSession();
       
       session.value = {
