@@ -59,37 +59,69 @@ const password = ref('');
 const responseMessage = ref('');
 const isSuccess = ref(false);
 
+// const login = async () => {
+//   try {
+//     const response = await $fetch('/api/auth', {
+//       method: 'POST',
+//       body: {
+//         email: email.value,
+//         password: password.value,
+//       },
+//     });
+//     const jwtToken = response.token;
+//     if (jwtToken) {
+      
+//       await refreshSession();
+      
+//       session.value = {
+//         token: jwtToken,
+//         user: response.user || { email: email.value }
+//       };
+
+//       responseMessage.value = `Login successful!`;
+//       isSuccess.value = true;
+     
+//       await navigateTo('/')
+//     } else {
+//       responseMessage.value = 'Login successful, but no token received.';
+//       isSuccess.value = false;
+//     }
+//   } catch (error) {
+//     responseMessage.value = 'Login failed: ' + (error.data?.message || 'Une erreur inconnue c\'est produite.');
+//     isSuccess.value = false;
+//   }
+// };
+const loading = ref(false)
 const login = async () => {
+  loading.value = true
+  responseMessage.value = ''
+  
   try {
-    const response = await $fetch('/api/auth', {
+    // 1. On appelle NOTRE API Nuxt (server/api/auth.post.ts)
+    // C'est elle qui parlera au backend externe et fera le setUserSession
+    await $fetch('/api/auth', {
       method: 'POST',
       body: {
         email: email.value,
         password: password.value,
       },
-    });
-    const jwtToken = response.token;
-    if (jwtToken) {
-      
-      await refreshSession();
-      
-      session.value = {
-        token: jwtToken,
-        user: response.user || { email: email.value }
-      };
+    })
 
-      responseMessage.value = `Login successful!`;
-      isSuccess.value = true;
-     
-      await navigateTo('/')
-    } else {
-      responseMessage.value = 'Login successful, but no token received.';
-      isSuccess.value = false;
-    }
+    // 2. IMPORTANT : On synchronise l'état client avec le cookie qui vient d'être créé
+    await refreshSession()
+
+    isSuccess.value = true
+    responseMessage.value = 'Connexion réussie !'
+
+    // 3. Redirection vers l'accueil
+    await navigateTo('/')
+
   } catch (error) {
-    responseMessage.value = 'Login failed: ' + (error.data?.message || 'Une erreur inconnue c\'est produite.');
-    isSuccess.value = false;
+    isSuccess.value = false
+    // On récupère le message d'erreur renvoyé par notre API Nuxt
+    responseMessage.value = error.data?.message || 'Une erreur est survenue lors de la connexion.'
+  } finally {
+    loading.value = false
   }
-};
-
+  }
 </script>
