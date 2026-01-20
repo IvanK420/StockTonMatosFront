@@ -3,6 +3,7 @@
   v-if="categories.length > 0"
   class="flex gap-5 overflow-x-auto overflow-y-hidden pb-2">
     <CatCard
+      v-on:click=" navigateToCategory(value.id) "
       v-for="value in categories"
       :key="value.id"
       :title="value.nom || 'Catégorie Sans Nom'"
@@ -27,6 +28,7 @@ type Category = {
 interface ApiResponse {
   member: Category[];
 }
+
 
 const { data: response } = await useAsyncData<ApiResponse>('categories', () => 
   $fetch('/api/categories',{

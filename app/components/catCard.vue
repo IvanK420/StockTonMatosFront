@@ -1,6 +1,6 @@
 <template>
   <div class="relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow shrink-0"
-  v-on:click=" navigateToCategory(title) "
+  
   >
     <img 
       :src="image" 
@@ -24,8 +24,5 @@ defineProps({
     required: true
   }
 })
-function navigateToCategory(title: string) {
-  // Logic to navigate to category page
-  navigateTo('/categories/' + title)
-}
+
 </script>
