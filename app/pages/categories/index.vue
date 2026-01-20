@@ -3,7 +3,7 @@
     <h1 class="text-3xl font-bold mb-6">Categories</h1>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <CatCard
-            :onclick="navigateToCategory(value.id)"
+            v-on:click="navigateToCategory(value.id)"
             v-for="value in categories"
             :key="value.id"
             :image="value.image"

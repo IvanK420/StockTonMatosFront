@@ -9,6 +9,7 @@ export default defineNuxtConfig({
         'nuxt-auth-utils',
         'pinia-plugin-persistedstate/nuxt',
         '@nuxt/ui',
+        '@nuxt/icon'
        ],
     vite: {
         plugins: [

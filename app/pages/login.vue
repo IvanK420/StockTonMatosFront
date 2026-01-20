@@ -15,7 +15,7 @@
                 type="email"
                 name="email"
                 class="  border-b-2 text-gray-900 sm:text-sm block w-full p-2.5  dark:border-white dark:placeholder-gray-300 dark:text-white "
-                placeholder="johndoe@hotmail.fr"
+                placeholder="j@doe.test"
                 required
               />
             </div>
@@ -53,7 +53,7 @@
 })
 
 import { ref } from 'vue';
-const { loggedIn, user, session, fetch, clear, openInPopup } = useUserSession()
+const { loggedIn, user, session, fetch : refreshSession, clear, openInPopup } = useUserSession()
 const email = ref('');
 const password = ref('');
 const responseMessage = ref('');
@@ -71,8 +71,8 @@ const login = async () => {
     const jwtToken = response.token;
     if (jwtToken) {
       
-      await fetch();
-      
+      // await fetch();
+      await refreshSession();
       
       session.value = {
         token: jwtToken,

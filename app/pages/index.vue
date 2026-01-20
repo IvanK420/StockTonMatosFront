@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import QrButton from '~/components/qrButton .vue';
 
-definePageMeta({
-  middleware: ['auth'],
-  // or middleware: 'auth'
-})  
+// definePageMeta({
+//   middleware: ['auth'],
+//   // or middleware: 'auth'
+// })  
 
 const { user, clear: clearSession,loggedIn } = useUserSession()
 </script>
