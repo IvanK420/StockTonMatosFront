@@ -4,7 +4,7 @@
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <CatCard
             v-on:click="navigateToCategory(value.id)"
-            v-for="value in categories"
+            v-for="value in categories2"
             :key="value.id"
             :image="value.image"
             :title="value.nom"
@@ -27,14 +27,14 @@ type Category = {
 interface ApiResponse {
   member: Category[];
 }
-const { data: response } = await useAsyncData<ApiResponse>('categories', () => 
-  $fetch('/api/categories',{
+const { data: response2 } = await useAsyncData<ApiResponse>('categories', () => 
+  $fetch('/api/proxy/categories',{
     headers: {
       Authorization: `Bearer ${token}`
     }
   })
   
 )
-const categories = computed(() => response.value?.member || [])
+const categories2 = computed(() => response2.value?.member || [])
 
 </script>
