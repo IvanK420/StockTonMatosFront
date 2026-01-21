@@ -1,9 +1,9 @@
 <template >
     <div class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold mb-6 capitalize">{{ category.nom }}</h1>
+        <h1 class="text-3xl font-bold mb-6 capitalize">{{ category1.nom }}</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <CatCard
-            v-for="value in category.materiels"
+            v-for="value in category1.materiels"
             :key="value.id"
             :image="value.image"
             :title="value.nom"
@@ -31,10 +31,10 @@ type Category = {
   materiels: Materiel[]
 }
 
-const { data: category } = await useAsyncData<Category>(
+const { data: category1 } = await useAsyncData<Category>(
   `category-${id}`,
   () =>
-    $fetch(`/api/categories/${id}`, {
+    $fetch(`/api/proxy/categories/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

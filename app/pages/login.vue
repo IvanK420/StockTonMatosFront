@@ -61,7 +61,7 @@ const isSuccess = ref(false);
 
 const login = async () => {
   try {
-    const response = await $fetch('/api/auth', {
+    const response = await $fetch('/api/login', {
       method: 'POST',
       body: {
         email: email.value,
@@ -70,14 +70,6 @@ const login = async () => {
     });
     const jwtToken = response.token;
     if (jwtToken) {
-      
-      await refreshSession();
-      
-      session.value = {
-        token: jwtToken,
-        user: response.user || { email: email.value }
-      };
-
       responseMessage.value = `Login successful!`;
       isSuccess.value = true;
      

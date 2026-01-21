@@ -28,7 +28,7 @@ interface ApiResponse {
   member: Materiel[];
 }
 const { data: response } = await useAsyncData<ApiResponse>('materiels', () => 
-  $fetch('/api/materiels',{
+  $fetch('/api/proxy/materiels',{
     headers: {
       Authorization: `Bearer ${token}`
     }

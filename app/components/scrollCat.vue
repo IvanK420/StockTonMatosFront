@@ -31,7 +31,7 @@ interface ApiResponse {
 
 
 const { data: response } = await useAsyncData<ApiResponse>('categories', () => 
-  $fetch('/api/categories',{
+  $fetch('/api/proxy/categories',{
     headers: {
       Authorization: `Bearer ${token}`
     }
