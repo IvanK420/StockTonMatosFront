@@ -42,6 +42,9 @@ const { user, clear: clearSession,loggedIn } = useUserSession()
       <h2 class="text-2xl">
         Emplacements
       </h2>
+      <div class="flex gap-5 overflow-x-auto overflow-y-hidden pb-2 ">
+     <ScrollEmp/>
+      </div>
     </div>
     <!-- <NuxtLink to="/login" class="mt-8 px-6 py-3 text-white bg-indigo-600 hover:bg-indigo-700 font-medium rounded-lg text-sm focus:ring-4 focus:outline-none focus:ring-indigo-300">Go to Login</NuxtLink> -->
   </div>

@@ -6,3 +6,7 @@ export const navigateToMateriel = (id: number) => {
   // Logic to navigate to Materiel page
   navigateTo('/materiels/' + id)
 }
+export const navigateToEmplacement = (id: number) => {
+  // Logic to navigate to Emplacement page
+  navigateTo('/emplacements/' + id)
+}

@@ -1,10 +1,10 @@
 <template>
   <div 
-  v-if="materiels.length > 0"
+  v-if="emplacements.length > 0"
   class="flex gap-5 overflow-x-auto overflow-y-hidden pb-2">
-    <MatCard
-      v-on:click=" navigateToMateriel(value.id) "
-      v-for="value in materiels"
+    <EmpCard
+      v-on:click=" navigateToEmplacement(value.id) "
+      v-for="value in emplacements"
       :key="value.id"
       :title="value.nom || 'Catégorie Sans Nom'"
       :image="value.image || 'https://placehold.co/150'"
@@ -16,6 +16,8 @@
 </template>
 
 <script setup lang="ts">
+import type { Emplacement } from '~/pages/emplacements/index.vue';
+
     const session = useUserSession();
     const token = session.session.value?.token || '';
 
@@ -28,17 +30,17 @@ export type Materiel = {
 }
 
 interface ApiResponse {
-  member: Materiel[];
+  member: Emplacement[];
 }
 
 
-const { data: response } = await useAsyncData<ApiResponse>('materiels', () => 
-  $fetch('/api/proxy/materiels',{
+const { data: response } = await useAsyncData<ApiResponse>('emplacements2', () => 
+  $fetch('/api/proxy/emplacements',{
     headers: {
       Authorization: `Bearer ${token}`
     }
   })
   
 )
-const materiels = computed(() => response.value?.member || [])
+const emplacements = computed(() => response.value?.member || [])
 </script>
