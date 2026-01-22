@@ -26,8 +26,8 @@ export default defineNuxtConfig({
             name: 'nuxt-session',
             password: process.env.NUXT_SESSION_PASSWORD as string || "12345678901234567890123456789012", // Doit faire 32 caractères min.
             cookie: {
-                // Durée de vie en secondes (ex: 7 jours)
-                maxAge: 60 * 60 * 24 * 7, 
+                // Durée de vie en secondes (ex: 1 heure)
+                maxAge: 60 * 60, 
                 sameSite: 'lax',
                 secure: false,
             }
