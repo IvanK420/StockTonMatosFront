@@ -22,12 +22,13 @@ type Category = {
   id: number;
   nom: string;
   image: string;
+  "@id" : string;
 }
 
-interface ApiResponse {
+export interface ApiResponseCategory {
   member: Category[];
 }
-const { data: response2 } = await useAsyncData<ApiResponse>('categories', () => 
+const { data: response2 } = await useAsyncData<ApiResponseCategory>('categories', () => 
   $fetch('/api/proxy/categories',{
     headers: {
       Authorization: `Bearer ${token}`

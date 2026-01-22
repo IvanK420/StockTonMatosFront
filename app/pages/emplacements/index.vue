@@ -14,6 +14,7 @@
 </div>
 </template>
 <script setup lang="ts">
+import { string } from 'zod';
 import EmpCard from '~/components/empCard.vue';
 import type { Materiel } from '~/components/scrollEmp.vue';
 
@@ -22,6 +23,7 @@ import type { Materiel } from '~/components/scrollEmp.vue';
     const token = session.session.value?.token || '';
 
 export type Emplacement = {
+    "@id" : string;
     id : number;
     nom : string;
     qr_code_data : string;
@@ -29,10 +31,10 @@ export type Emplacement = {
     materiels : Materiel[]
 }
 
-interface ApiResponse {
+export interface ApiResponseEmplacement {
   member: Emplacement[];
 }
-const { data: response } = await useAsyncData<ApiResponse>('emplacements1', () => 
+const { data: response } = await useAsyncData<ApiResponseEmplacement>('emplacements1', () => 
   $fetch('/api/proxy/emplacements',{
     headers: {
       Authorization: `Bearer ${token}`
