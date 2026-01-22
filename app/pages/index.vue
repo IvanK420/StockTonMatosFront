@@ -34,6 +34,9 @@ const { user, clear: clearSession,loggedIn } = useUserSession()
       <h2 class="text-2xl">
         Matériels
       </h2>
+      <div class="flex gap-5 overflow-x-auto overflow-y-hidden pb-2 ">
+     <ScrollMat/>
+      </div>
     </div>
     <div>
       <h2 class="text-2xl">

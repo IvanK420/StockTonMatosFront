@@ -4,7 +4,7 @@
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <CatCard
             v-on:click="navigateToCategory(value.id)"
-            v-for="value in categories"
+            v-for="value in materiels"
             :key="value.id"
             :image="value.image"
             :title="value.nom"
@@ -14,20 +14,19 @@
 </div>
 
 </template>
-<script setup lang="ts">    
+<script setup lang="ts">
+import type { Materiel } from '~/components/scrollMat.vue';
+
+    
     const session = useUserSession();
     const token = session.session.value?.token || '';
 
-type Materiel = {
-  id: number;
-  nom: string;
-  image: string;
-}
+
 
 interface ApiResponse {
   member: Materiel[];
 }
-const { data: response } = await useAsyncData<ApiResponse>('materiels', () => 
+const { data: response } = await useAsyncData<ApiResponse>('materiels1', () => 
   $fetch('/api/proxy/materiels',{
     headers: {
       Authorization: `Bearer ${token}`
@@ -35,6 +34,6 @@ const { data: response } = await useAsyncData<ApiResponse>('materiels', () =>
   })
   
 )
-const categories = computed(() => response.value?.member || [])
+const materiels = computed(() => response.value?.member || [])
 
 </script>
